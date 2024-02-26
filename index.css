@@ -1,6 +1,4 @@
-body{
-    background-color: black;
-    color: aqua;
-
-    font-family: 'Courier New', Courier, monospace;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+`
