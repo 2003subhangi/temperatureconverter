@@ -10,8 +10,10 @@
    
     <div class="container align-middle justify-center border-4 rounded-md border-purple-700 w-1/2 text-center mt-32 ml-96">
         <h1 class="text-6xl text-center  bg-gradient-to-r from-indigo-800 via-purple-500 to-pink-500 inline-block text-transparent  bg-clip-text ml-20">Temperature Converter</h1><br>
+        <div class="flex ml-16">
         <input type="number" id="input" class="m-10 p-5 bg-gray-400 border-4 border-purple-800 rounded-md" >
-        <div id="result" class="m-10 p-5 bg-gray-400 border-4 border-purple-800 rounded-md"></div>
+        <div id="result" class="m-10 p-5 bg-gray-400 border-4 border-purple-800 rounded-md w-52 h-20 "></div>
+    </div>
         <div>
             <button class="m-5 rounded-md w-56  text-lg bg-gradient-to-r from-indigo-800 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500" onclick="cel_kel()">Celsius -> Kelvin</button>
         <button class="m-5 rounded-md w-56 text-lg bg-gradient-to-r from-indigo-800 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500 " onclick="kel_cel()">Kelvin -> Celsius</button>
@@ -19,12 +21,12 @@
         </div>
         <div>
             <button class="m-5 rounded-md w-56  text-lg bg-gradient-to-r from-indigo-800 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500" onclick="far_kel()">Fahrenheit -> Kelvin</button>
-        <button class="m-5 rounded-md w-56 text-lg bg-gradient-to-r from-indigo-800 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500 ">Kelvin -> Fahrenheit</button>
+        <button class="m-5 rounded-md w-56 text-lg bg-gradient-to-r from-indigo-800 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500 " onclick="kel_far()">Kelvin -> Fahrenheit</button>
 
         </div>
         <div>
-            <button class="m-5 rounded-md w-56  text-lg bg-gradient-to-r from-indigo-800 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500">Fahrenheit -> Celsius</button>
-        <button class="m-5 rounded-md w-56 text-lg bg-gradient-to-r from-indigo-800 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500 ">Celcius -> Fahrenheit</button>
+            <button class="m-5 rounded-md w-56  text-lg bg-gradient-to-r from-indigo-800 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500" onclick="far_cel()">Fahrenheit -> Celsius</button>
+        <button class="m-5 rounded-md w-56 text-lg bg-gradient-to-r from-indigo-800 via-purple-500 to-pink-500 hover:from-pink-500 hover:to-yellow-500 " onclick="cel_far()">Celcius -> Fahrenheit</button>
 
         </div>
         
@@ -35,19 +37,37 @@
             var input = document.getElementById('input').value;
             var res = document.getElementById('result');
             res.value = parseFloat(input) + 273.15;
-            result.innerText = res.value;
+            result.innerText = res.value + " K";
         }
         function kel_cel(){
             var input = document.getElementById('input').value;
             var res = document.getElementById('result');
             res.value = parseFloat(input) - 273.15;
-            result.innerText = res.value;
+            result.innerText = res.value+" C";
         }
         function far_kel(){
             var input = document.getElementById('input').value;
             var res = document.getElementById('result');
             res.value = (parseFloat(input) - 32) * 5/9 + 273.15;
-            result.innerText = res.value;
+            result.innerText = res.value+" K";
+        }
+        function kel_far(){
+            var input = document.getElementById('input').value;
+            var res = document.getElementById('result');
+            res.value = (parseFloat(input) - 273.15) * 9/5 + 32;
+            result.innerText = res.value+" F";
+        }
+        function far_cel(){
+            var input=document.getElementById('input').value;
+            var res=document.getElementById('result');
+            res.value=(parseFloat(input)-32)*5/9;
+            result.innerText=res.value+" C";
+        }
+        function cel_far(){
+            var input=document.getElementById('input').value;
+            var res=document.getElementById('result');
+            res.value=(parseFloat(input)*9/5)+32;
+            result.innerText=res.value+" F";
         }
     </script>
     
